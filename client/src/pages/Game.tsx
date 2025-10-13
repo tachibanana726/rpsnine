@@ -45,8 +45,8 @@ export default function Game() {
   const [player2PlayedCard, setPlayer2PlayedCard] = useState<CardType | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [result, setResult] = useState<"player1" | "player2" | "draw" | null>(null);
-  const [player1Score, setPlayer1Score] = useState(0);
-  const [player2Score, setPlayer2Score] = useState(0);
+  const [player1Stars, setPlayer1Stars] = useState(3);
+  const [player2Stars, setPlayer2Stars] = useState(3);
   const [currentRound, setCurrentRound] = useState(0);
   const [gameEnded, setGameEnded] = useState(false);
 
@@ -65,8 +65,8 @@ export default function Game() {
     setPlayer2PlayedCard(null);
     setIsRevealed(false);
     setResult(null);
-    setPlayer1Score(0);
-    setPlayer2Score(0);
+    setPlayer1Stars(3);
+    setPlayer2Stars(3);
     setCurrentRound(0);
     setGameEnded(false);
   };
@@ -113,16 +113,27 @@ export default function Game() {
       const roundResult = determineWinner(selectedCard, randomPlayer2Card.type);
       setResult(roundResult);
       
+      let newPlayer1Stars = player1Stars;
+      let newPlayer2Stars = player2Stars;
+      
       if (roundResult === "player1") {
-        setPlayer1Score(prev => prev + 1);
+        newPlayer1Stars = player1Stars + 1;
+        newPlayer2Stars = player2Stars - 1;
+        setPlayer1Stars(newPlayer1Stars);
+        setPlayer2Stars(newPlayer2Stars);
       } else if (roundResult === "player2") {
-        setPlayer2Score(prev => prev + 1);
+        newPlayer1Stars = player1Stars - 1;
+        newPlayer2Stars = player2Stars + 1;
+        setPlayer1Stars(newPlayer1Stars);
+        setPlayer2Stars(newPlayer2Stars);
       }
       
       setCurrentRound(prev => prev + 1);
 
       const newRound = currentRound + 1;
-      if (newRound >= 9) {
+      const hasZeroStars = newPlayer1Stars <= 0 || newPlayer2Stars <= 0;
+      
+      if (newRound >= 9 || hasZeroStars) {
         setTimeout(() => {
           setGameEnded(true);
         }, 2000);
@@ -142,8 +153,8 @@ export default function Game() {
     <div className="min-h-screen bg-background p-4 md:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
         <ScoreBoard
-          player1Score={player1Score}
-          player2Score={player2Score}
+          player1Stars={player1Stars}
+          player2Stars={player2Stars}
           currentRound={currentRound}
           totalRounds={9}
         />
@@ -177,8 +188,8 @@ export default function Game() {
 
       {gameEnded && (
         <GameResults
-          player1Score={player1Score}
-          player2Score={player2Score}
+          player1Stars={player1Stars}
+          player2Stars={player2Stars}
           onNewGame={initializeGame}
         />
       )}

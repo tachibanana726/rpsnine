@@ -1,22 +1,22 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Trophy, Sparkles, RotateCcw } from "lucide-react";
+import { Trophy, Sparkles, RotateCcw, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface GameResultsProps {
-  player1Score: number;
-  player2Score: number;
+  player1Stars: number;
+  player2Stars: number;
   onNewGame: () => void;
   className?: string;
 }
 
 export default function GameResults({
-  player1Score,
-  player2Score,
+  player1Stars,
+  player2Stars,
   onNewGame,
   className,
 }: GameResultsProps) {
-  const winner = player1Score > player2Score ? "player1" : player1Score < player2Score ? "player2" : "draw";
+  const winner = player1Stars > player2Stars ? "player1" : player1Stars < player2Stars ? "player2" : "draw";
   
   const getTitle = () => {
     if (winner === "draw") return "平手!";
@@ -56,19 +56,35 @@ export default function GameResults({
 
         <div className="flex justify-center gap-8 py-6">
           <div>
-            <p className="text-sm text-muted-foreground mb-2">你</p>
-            <p data-testid="text-final-player-1-score" className="text-4xl font-display font-bold text-player-1">
-              {player1Score}
-            </p>
+            <p className="text-sm text-muted-foreground mb-3">你</p>
+            <div 
+              data-testid="text-final-player-1-stars" 
+              className="flex items-center justify-center gap-1"
+            >
+              {Array.from({ length: player1Stars }).map((_, i) => (
+                <Star 
+                  key={i} 
+                  className="w-7 h-7 md:w-9 md:h-9 fill-yellow-400 text-yellow-400"
+                />
+              ))}
+            </div>
           </div>
           <div className="flex items-center text-2xl text-muted-foreground">
             -
           </div>
           <div>
-            <p className="text-sm text-muted-foreground mb-2">電腦</p>
-            <p data-testid="text-final-player-2-score" className="text-4xl font-display font-bold text-player-2">
-              {player2Score}
-            </p>
+            <p className="text-sm text-muted-foreground mb-3">電腦</p>
+            <div 
+              data-testid="text-final-player-2-stars"
+              className="flex items-center justify-center gap-1"
+            >
+              {Array.from({ length: player2Stars }).map((_, i) => (
+                <Star 
+                  key={i} 
+                  className="w-7 h-7 md:w-9 md:h-9 fill-yellow-400 text-yellow-400"
+                />
+              ))}
+            </div>
           </div>
         </div>
 
