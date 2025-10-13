@@ -87,9 +87,16 @@ export default function Game() {
     setPlayer1PlayedCard(selectedCard);
     setPlayer2PlayedCard(randomPlayer2Card.type);
 
-    setPlayer1Cards(prev => 
-      prev.map(c => c.type === selectedCard && !c.played ? { ...c, played: true } : c)
-    );
+    setPlayer1Cards(prev => {
+      let found = false;
+      return prev.map(c => {
+        if (c.type === selectedCard && !c.played && !found) {
+          found = true;
+          return { ...c, played: true };
+        }
+        return c;
+      });
+    });
     setPlayer2Cards(prev => {
       let found = false;
       return prev.map(c => {
