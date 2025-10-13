@@ -9,6 +9,7 @@ interface GameCardProps {
   isSelected?: boolean;
   isPlayed?: boolean;
   isRevealed?: boolean;
+  showIcon?: boolean;
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
   className?: string;
@@ -37,6 +38,7 @@ export default function GameCard({
   isSelected = false,
   isPlayed = false,
   isRevealed = false,
+  showIcon = true,
   onClick,
   size = "md",
   className,
@@ -59,8 +61,12 @@ export default function GameCard({
       )}
       onClick={isClickable ? onClick : undefined}
     >
-      {isRevealed ? (
-        <Icon className={cn("w-12 h-12 md:w-16 md:h-16", size === "sm" && "w-8 h-8")} />
+      {showIcon ? (
+        <Icon className={cn(
+          "w-12 h-12 md:w-16 md:h-16",
+          size === "sm" && "w-8 h-8",
+          isRevealed && "transition-transform duration-300"
+        )} />
       ) : (
         <div className="flex flex-col items-center gap-2">
           <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-primary/20" />

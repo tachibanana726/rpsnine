@@ -40,6 +40,7 @@ export default function BattleArena({
             <GameCard
               type={player1Card}
               isRevealed={isRevealed}
+              showIcon={isRevealed}
               size="lg"
             />
           ) : (
@@ -59,6 +60,7 @@ export default function BattleArena({
             <GameCard
               type={player2Card}
               isRevealed={isRevealed}
+              showIcon={isRevealed}
               size="lg"
             />
           ) : (
