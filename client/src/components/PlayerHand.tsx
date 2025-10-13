@@ -20,7 +20,7 @@ export default function PlayerHand({
   className,
 }: PlayerHandProps) {
   const playerColor = playerNumber === 1 ? "bg-player-1/10 border-player-1/30" : "bg-player-2/10 border-player-2/30";
-  const playerName = isOpponent ? "對手" : "你";
+  const playerName = isOpponent ? "電腦" : "你的手牌";
 
   return (
     <Card

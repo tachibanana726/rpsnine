@@ -22,7 +22,7 @@ export default function ScoreBoard({
       <div className="flex items-center justify-between gap-4 md:gap-8">
         <div className="flex-1 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <h3 className="text-base md:text-lg font-semibold" data-testid="text-player-1-label">玩家 1</h3>
+            <h3 className="text-base md:text-lg font-semibold" data-testid="text-player-1-label">你</h3>
             {player1Score > player2Score && currentRound === totalRounds && (
               <Trophy className="w-4 h-4 md:w-5 md:h-5 text-game-win" />
             )}
@@ -44,7 +44,7 @@ export default function ScoreBoard({
 
         <div className="flex-1 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <h3 className="text-base md:text-lg font-semibold" data-testid="text-player-2-label">玩家 2</h3>
+            <h3 className="text-base md:text-lg font-semibold" data-testid="text-player-2-label">電腦</h3>
             {player2Score > player1Score && currentRound === totalRounds && (
               <Trophy className="w-4 h-4 md:w-5 md:h-5 text-game-win" />
             )}

@@ -148,22 +148,12 @@ export default function Game() {
           result={result}
         />
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <PlayerHand
-            cards={player1Cards}
-            selectedCard={selectedCard}
-            onCardSelect={handleCardSelect}
-            playerNumber={1}
-          />
-
-          <PlayerHand
-            cards={player2Cards}
-            selectedCard={null}
-            onCardSelect={() => {}}
-            playerNumber={2}
-            isOpponent
-          />
-        </div>
+        <PlayerHand
+          cards={player1Cards}
+          selectedCard={selectedCard}
+          onCardSelect={handleCardSelect}
+          playerNumber={1}
+        />
 
         <div className="flex justify-center">
           <Button

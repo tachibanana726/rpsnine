@@ -21,7 +21,7 @@ export default function GameResults({
   const getTitle = () => {
     if (winner === "draw") return "平手!";
     if (winner === "player1") return "你贏了!";
-    return "對手贏了!";
+    return "電腦贏了!";
   };
 
   const getTitleColor = () => {
@@ -56,7 +56,7 @@ export default function GameResults({
 
         <div className="flex justify-center gap-8 py-6">
           <div>
-            <p className="text-sm text-muted-foreground mb-2">玩家 1</p>
+            <p className="text-sm text-muted-foreground mb-2">你</p>
             <p data-testid="text-final-player-1-score" className="text-4xl font-display font-bold text-player-1">
               {player1Score}
             </p>
@@ -65,7 +65,7 @@ export default function GameResults({
             -
           </div>
           <div>
-            <p className="text-sm text-muted-foreground mb-2">玩家 2</p>
+            <p className="text-sm text-muted-foreground mb-2">電腦</p>
             <p data-testid="text-final-player-2-score" className="text-4xl font-display font-bold text-player-2">
               {player2Score}
             </p>

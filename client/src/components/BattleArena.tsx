@@ -19,10 +19,10 @@ export default function BattleArena({
   className,
 }: BattleArenaProps) {
   const getResultText = () => {
-    if (!result) return "等待出牌...";
+    if (!result) return "選擇你的牌並確認出牌";
     if (result === "draw") return "平手!";
     if (result === "player1") return "你贏了!";
-    return "對手贏了!";
+    return "電腦贏了!";
   };
 
   const getResultColor = () => {
