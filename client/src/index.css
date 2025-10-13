@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+
+  /* Automatic computation of border around primary / danger buttons */
+  --opaque-button-border-intensity: -8; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: 220 5% 96%;
+
+  --foreground: 220 8% 12%;
+
+  --border: 220 8% 88%;
+
+  --card: 220 6% 94%;
+
+  --card-foreground: 220 8% 12%;
+
+  --card-border: 220 8% 86%;
+
+  --sidebar: 220 6% 92%;
+
+  --sidebar-foreground: 220 8% 12%;
+
+  --sidebar-border: 220 8% 84%;
+
+  --sidebar-primary: 200 95% 42%;
+
+  --sidebar-primary-foreground: 200 20% 98%;
+
+  --sidebar-accent: 220 10% 88%;
+
+  --sidebar-accent-foreground: 220 10% 18%;
+
+  --sidebar-ring: 200 95% 55%;
+
+  --popover: 220 6% 90%;
+
+  --popover-foreground: 220 8% 12%;
+
+  --popover-border: 220 8% 82%;
+
+  --primary: 200 95% 42%;
+
+  --primary-foreground: 200 20% 98%;
+
+  --secondary: 220 8% 86%;
+
+  --secondary-foreground: 220 10% 18%;
+
+  --muted: 220 10% 88%;
+
+  --muted-foreground: 220 10% 38%;
+
+  --accent: 220 12% 86%;
+
+  --accent-foreground: 220 12% 18%;
+
+  --destructive: 0 84% 48%;
+
+  --destructive-foreground: 0 20% 98%;
+
+  --input: 220 12% 68%;
+  --ring: 200 95% 55%;
+  --chart-1: 200 95% 45%;
+  --chart-2: 340 90% 52%;
+  --chart-3: 260 65% 48%;
+  --chart-4: 30 60% 45%;
+  --chart-5: 142 76% 38%;
+
+  --font-sans: Inter, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --font-display: Fredoka, sans-serif;
+  --radius: .5rem;
+  --shadow-2xs: 0px 1px 2px 0px hsl(220 20% 12% / 0.05);
+  --shadow-xs: 0px 1px 3px 0px hsl(220 20% 12% / 0.08);
+  --shadow-sm: 0px 2px 4px -1px hsl(220 20% 12% / 0.06), 0px 1px 2px -1px hsl(220 20% 12% / 0.08);
+  --shadow: 0px 4px 6px -1px hsl(220 20% 12% / 0.08), 0px 2px 4px -2px hsl(220 20% 12% / 0.10);
+  --shadow-md: 0px 6px 12px -2px hsl(220 20% 12% / 0.10), 0px 3px 6px -3px hsl(220 20% 12% / 0.12);
+  --shadow-lg: 0px 12px 24px -4px hsl(220 20% 12% / 0.12), 0px 6px 12px -6px hsl(220 20% 12% / 0.14);
+  --shadow-xl: 0px 20px 40px -8px hsl(220 20% 12% / 0.16), 0px 10px 20px -10px hsl(220 20% 12% / 0.18);
+  --shadow-2xl: 0px 32px 64px -12px hsl(220 20% 12% / 0.20);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Game-specific card colors */
+  --card-scissors: 260 65% 48%;
+  --card-rock: 30 60% 45%;
+  --card-paper: 200 70% 48%;
+  --card-scissors-foreground: 260 20% 98%;
+  --card-rock-foreground: 30 20% 98%;
+  --card-paper-foreground: 200 20% 98%;
+
+  /* Game state colors */
+  --game-win: 142 76% 38%;
+  --game-win-foreground: 142 20% 98%;
+  --game-draw: 45 93% 48%;
+  --game-draw-foreground: 45 20% 12%;
+  --game-lose: 0 84% 48%;
+  --game-lose-foreground: 0 20% 98%;
+
+  /* Player colors */
+  --player-1: 200 95% 45%;
+  --player-1-foreground: 200 20% 98%;
+  --player-2: 340 90% 52%;
+  --player-2-foreground: 340 20% 98%;
+
+  /* Automatically computed borders */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+
+  --opaque-button-border-intensity: 9;
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 220 20% 12%;
+
+  --foreground: 220 8% 92%;
+
+  --border: 220 16% 18%;
+
+  --card: 220 18% 16%;
+
+  --card-foreground: 220 8% 92%;
+
+  --card-border: 220 16% 20%;
+
+  --sidebar: 220 18% 18%;
+
+  --sidebar-foreground: 220 8% 92%;
+
+  --sidebar-border: 220 16% 22%;
+
+  --sidebar-primary: 200 95% 55%;
+
+  --sidebar-primary-foreground: 200 20% 98%;
+
+  --sidebar-accent: 220 16% 24%;
+
+  --sidebar-accent-foreground: 220 8% 92%;
+
+  --sidebar-ring: 200 95% 55%;
+
+  --popover: 220 18% 20%;
+
+  --popover-foreground: 220 8% 92%;
+
+  --popover-border: 220 16% 24%;
+
+  --primary: 200 95% 55%;
+
+  --primary-foreground: 200 20% 98%;
+
+  --secondary: 220 16% 24%;
+
+  --secondary-foreground: 220 8% 92%;
+
+  --muted: 220 16% 22%;
+
+  --muted-foreground: 220 8% 68%;
+
+  --accent: 220 18% 24%;
+
+  --accent-foreground: 220 8% 92%;
+
+  --destructive: 0 84% 60%;
+
+  --destructive-foreground: 0 20% 98%;
+
+  --input: 220 16% 32%;
+  --ring: 200 95% 55%;
+  --chart-1: 200 95% 60%;
+  --chart-2: 340 90% 65%;
+  --chart-3: 260 65% 65%;
+  --chart-4: 30 60% 60%;
+  --chart-5: 142 76% 55%;
+
+  --font-display: Fredoka, sans-serif;
+
+  --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.20);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.28);
+  --shadow-sm: 0px 2px 4px -1px hsl(0 0% 0% / 0.24), 0px 1px 2px -1px hsl(0 0% 0% / 0.28);
+  --shadow: 0px 4px 6px -1px hsl(0 0% 0% / 0.30), 0px 2px 4px -2px hsl(0 0% 0% / 0.32);
+  --shadow-md: 0px 6px 12px -2px hsl(0 0% 0% / 0.36), 0px 3px 6px -3px hsl(0 0% 0% / 0.40);
+  --shadow-lg: 0px 12px 24px -4px hsl(0 0% 0% / 0.44), 0px 6px 12px -6px hsl(0 0% 0% / 0.48);
+  --shadow-xl: 0px 20px 40px -8px hsl(0 0% 0% / 0.52), 0px 10px 20px -10px hsl(0 0% 0% / 0.56);
+  --shadow-2xl: 0px 32px 64px -12px hsl(0 0% 0% / 0.60);
+
+  /* Game-specific card colors */
+  --card-scissors: 260 65% 60%;
+  --card-rock: 30 60% 55%;
+  --card-paper: 200 70% 60%;
+  --card-scissors-foreground: 260 20% 98%;
+  --card-rock-foreground: 30 20% 98%;
+  --card-paper-foreground: 200 20% 98%;
+
+  /* Game state colors */
+  --game-win: 142 76% 45%;
+  --game-win-foreground: 142 20% 98%;
+  --game-draw: 45 93% 55%;
+  --game-draw-foreground: 45 20% 12%;
+  --game-lose: 0 84% 60%;
+  --game-lose-foreground: 0 20% 98%;
+
+  /* Player colors */
+  --player-1: 200 95% 55%;
+  --player-1-foreground: 200 20% 98%;
+  --player-2: 340 90% 60%;
+  --player-2-foreground: 340 20% 98%;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  .no-default-hover-elevate {}
+
+  .no-default-active-elevate {}
+
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
